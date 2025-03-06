@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pipe <pipe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 13:37:59 by dbonilla          #+#    #+#             */
-/*   Updated: 2025/03/03 15:08:30 by dbonilla         ###   ########.fr       */
+/*   Updated: 2025/03/04 00:36:25 by pipe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/Bureaucrat.hpp"
+#include "../inc/Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(const std::string &name, int gradee): name(name)
 {
