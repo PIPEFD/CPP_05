@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 01:18:55 by dbonilla          #+#    #+#             */
-/*   Updated: 2025/03/07 01:19:00 by dbonilla         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:15:42 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &r
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout << "Presidential Destroyer To Default" << std::endl;
+    std::cout << "Roboto Destroyer To Default" << std::endl;
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const

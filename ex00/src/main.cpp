@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 16:07:14 by dbonilla          #+#    #+#             */
-/*   Updated: 2025/02/28 11:18:48 by dbonilla         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:19:36 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,11 @@ static int digit (char *digit)
 }
 int main (int argc, char **argv)
 {
-    // (void) argc;
-    // (void) argv;
     if (argc >= 2 && digit(argv[2]))
     {
         try
         {
             Bureaucrat a (argv[1] , atoi(argv[2]));
-            // std::cout << a << " Grade of Bureaucrat" << std::endl;
             std::cout << a.getGrade() << " Grade of Bureaucrat" << std::endl;
             std::cout << a.getName() << " Name of Bureaucrat" << std::endl;
             a.incrementGrade();
@@ -47,19 +44,6 @@ int main (int argc, char **argv)
         }
     }
     else
-        std::cout <<  " Argument not valid: ./Bureaucrat [Name] [Grade]" << std::endl;
-    // try
-    // {
-    //     a.incrementGrade();
-    //     a.incrementGrade();
-    //     a.incrementGrade();
-    //     a.incrementGrade();
-        
-    // }
-    // catch(const std::exception& e)
-    // {
-    //     std::cerr << e.what() << '\n';
-    // }
-    
+        std::cout <<  " Argument not valid: ./Bureaucrat [Name] [Grade]" << std::endl;    
     return (0); 
 }

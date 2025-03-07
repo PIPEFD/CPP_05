@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/06 02:27:59 by dbonilla          #+#    #+#             */
-/*   Updated: 2025/03/07 01:21:32 by dbonilla         ###   ########.fr       */
+/*   Created: 2025/03/07 15:42:21 by dbonilla          #+#    #+#             */
+/*   Updated: 2025/03/07 16:11:17 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,49 @@
 #include "../inc/ShrubberyCreationForm.hpp"
 #include "../inc/RobotomyRequestForm.hpp"
 #include "../inc/PresidentialPardonForm.hpp"
+#include "../inc/Intern.hpp"
+#include "../inc/AForm.hpp"
 
 #include <cstdlib>
 #include <cctype>
 #include <iostream>
 #include <string>
 
-int main() {
+// Función que verifica que la cadena contenga solo dígitos.
+static int digit(const char* str) {
+    for (int i = 0; str[i]; i++) {
+        if (!std::isdigit(str[i]))
+            return 0;
+    }
+    return 1;
+}
+
+int main(int argc, char **argv) {
     std::string bName;
     int bGrade;
     std::string target;
-    char option;
-
-    // Solicitar datos interactivos
-    std::cout << "Ingrese los datos del Bureaucrat:" << std::endl;
-    std::cout << "Nombre: ";
-    std::cin >> bName;
-    std::cout << "Grado (número entre 1 y 150): ";
-    std::cin >> bGrade;
-    std::cout << "Target para los formularios: ";
-    std::cin >> target;
+    
+    // Si se proporcionan al menos 4 argumentos y el grado es numérico, se usan esos valores.
+    if (argc >= 4 && digit(argv[2])) {
+        bName = argv[1];
+        bGrade = std::atoi(argv[2]);
+        target = argv[3];
+    }
+    else {
+        // Modo interactivo: se solicitan los datos al usuario.
+        std::cout << "No se proporcionaron argumentos válidos.\nIngrese los datos de forma interactiva:" << std::endl;
+        std::cout << "Bureaucrat name: ";
+        std::cin >> bName;
+        std::cout << "Bureaucrat grade (número entre 1 y 150): ";
+        std::cin >> bGrade;
+        std::cout << "Target for forms: ";
+        std::cin >> target;
+    }
     
     try {
         // Creación del Bureaucrat original
         Bureaucrat original(bName, bGrade);
-        std::cout << "\nBureaucrat creado:\n" << original << std::endl;
+        std::cout << "\nBureaucrat original creado:\n" << original << std::endl;
         
         // Se crean copias del Bureaucrat para asignarlas a cada formulario.
         Bureaucrat bShrubbery(original);
@@ -56,7 +74,8 @@ int main() {
         std::cout << robot << std::endl;
         std::cout << pardon << std::endl;
         
-        // Preguntar si se desea firmar los formularios.
+        char option;
+        // Preguntar al usuario si desea firmar los formularios.
         std::cout << "\n¿Desea firmar los formularios? (s/n): ";
         std::cin >> option;
         if (option == 's' || option == 'S') {
@@ -73,7 +92,7 @@ int main() {
             std::cout << "\nNo se firmaron los formularios." << std::endl;
         }
         
-        // Preguntar si se desea ejecutar los formularios.
+        // Preguntar al usuario si desea ejecutar los formularios.
         std::cout << "\n¿Desea ejecutar los formularios? (s/n): ";
         std::cin >> option;
         if (option == 's' || option == 'S') {
@@ -84,6 +103,17 @@ int main() {
         }
         else {
             std::cout << "\nNo se ejecutaron los formularios." << std::endl;
+        }
+        
+        // Ejemplo del Intern: crear un formulario dinámicamente.
+        Intern someIntern;
+        std::cout << "\nEjemplo de Intern:" << std::endl;
+        AForm* form = someIntern.makeForm("robotomy request", target);
+        if (form) {
+            // El Bureaucrat original firma y ejecuta el formulario creado por el Intern.
+            original.signForm(*form);
+            original.executeForm(*form);
+            delete form;
         }
     }
     catch (const std::exception & e) {
