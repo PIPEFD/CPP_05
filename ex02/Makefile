@@ -5,9 +5,9 @@ INC = inc/
 
 
 
-SRC_FILES = AForm.cpp \
+SRC_FILES = main.cpp \
 			Bureaucrat.cpp \
-			main.cpp \
+			AForm.cpp \
 			PresidentialPardonForm.cpp \
 			RobotomyRequestForm.cpp \
 			ShrubberyCreationForm.cpp
@@ -18,7 +18,7 @@ OBJS_FILES	=	$(SRC_FILES:%.cpp=$(OBJ_DIR)%.o)
 
 
 CXX			=  c++
-FLAGS		= -std=c++98 -Wall -Wextra -Werror -g3
+FLAGS		= -std=c++98 -Wall -Wextra -Werror
 RM			= rm -rf
 
 DEF_COLOR 	= \033[0;39m

@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 01:03:34 by dbonilla          #+#    #+#             */
-/*   Updated: 2025/03/07 15:54:28 by dbonilla         ###   ########.fr       */
+/*   Updated: 2025/03/07 18:32:01 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs)
 
 Bureaucrat::~Bureaucrat()
 {
-    
+    std::cout << "Destroyer of Bureaucrat" << std::endl;
+
 }
 void Bureaucrat::incrementGrade() {
     if (_grade <= 1)

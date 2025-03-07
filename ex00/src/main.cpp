@@ -6,44 +6,42 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 16:07:14 by dbonilla          #+#    #+#             */
-/*   Updated: 2025/03/07 17:19:36 by dbonilla         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:47:09 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include <stdlib.h>
+#include "../inc/Bureaucrat.hpp"
 #include <ctype.h>
+#include <stdlib.h>
 
-static int digit (char *digit)
+static int	digit(char *digit)
 {
-    for  (int i = 0; digit[i]; i++)
-    {
-        if (digit[i] >= '0' && digit[i] <= '9')
-        {
-            return (1);
-        }
-    }
-    return (0);
+	for (int i = 0; digit[i]; i++)
+	{
+		if (digit[i] >= '0' && digit[i] <= '9')
+		{
+			return (1);
+		}
+	}
+	return (0);
 }
-int main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    if (argc >= 2 && digit(argv[2]))
-    {
-        try
-        {
-            Bureaucrat a (argv[1] , atoi(argv[2]));
-            std::cout << a.getGrade() << " Grade of Bureaucrat" << std::endl;
-            std::cout << a.getName() << " Name of Bureaucrat" << std::endl;
-            a.incrementGrade();
-            std::cout << a.getGrade() << " Grade of Bureaucrat Increment" << std::endl;
-            std::cout << a.getName() << " Name of Bureaucrat Increment " << std::endl;
-        }
-        catch(const std::exception& e)
-        {
-            std::cerr << e.what() << '\n';
-        }
-    }
-    else
-        std::cout <<  " Argument not valid: ./Bureaucrat [Name] [Grade]" << std::endl;    
-    return (0); 
+	if (argc >= 2 && digit(argv[2]))
+	{
+		try
+		{
+			Bureaucrat a(argv[1], atoi(argv[2]));
+			a.decrementGrade();
+			a.incrementGrade();
+			std::cout << a << std::endl;
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << "Exception caught: " << e.what() << std::endl;
+		}
+	}
+	else
+		std::cout << " Argument not valid: ./Bureaucrat [Name] [Grade]" << std::endl;
+	return (0);
 }

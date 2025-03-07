@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pipe <pipe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 15:23:59 by dbonilla          #+#    #+#             */
-/*   Updated: 2025/03/04 17:36:28 by pipe             ###   ########.fr       */
+/*   Updated: 2025/03/07 17:49:54 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 Form::Form(const std::string &name, int gradeToSign,  int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
-    // std::cout << "Constructed to default" << std::endl;
+    std::cout << "Form Constructed " << std::endl;
     if (gradeToSign < 1 && gradeToExecute < 1)
         throw GradeToHighException();
     else if (gradeToSign > 150 && gradeToExecute > 150 )
@@ -26,7 +26,7 @@ Form::Form(const std::string &name, int gradeToSign,  int gradeToExecute) : _nam
 
 Form::Form(const Form &other) :  _name(other._name), _isSigned(other._isSigned), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
 {
-    // std::cout << "Copy of constucted of form" << std::endl;
+
 }
 
 Form &Form::operator=(const Form &rhs)
@@ -40,7 +40,7 @@ Form &Form::operator=(const Form &rhs)
 
 Form::~Form()
 {
-    // std::cout << "Destroyed to default" << std::endl;
+    std::cout << "Form Destroyed" << std::endl;
 
 
 }
@@ -86,5 +86,5 @@ std::ostream& operator<<(std::ostream& os, const Form &f) {
        << (f.isSigned() ? "yes" : "no")
        << ", grade required to sign: " << f.getGradeToSigned()
        << ", grade required to execute: " << f.getGradeToExecute() << "]";
-    return os;
+    return (os);
 }

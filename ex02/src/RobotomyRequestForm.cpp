@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 01:18:55 by dbonilla          #+#    #+#             */
-/*   Updated: 2025/03/07 01:19:00 by dbonilla         ###   ########.fr       */
+/*   Updated: 2025/03/07 18:00:55 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("ShrubberyCreationForm", 145, 137), _target(target)
 {
-    std::cout << "Presidential Constructor To Default" << std::endl;
+    std::cout << "Roboto Constructor To Default" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm(other), _target(other._target)
 {
-    std::cout << " Copy Presidential Constructor To Default" << std::endl;
+
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &rhs)
@@ -37,7 +37,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &r
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout << "Presidential Destroyer To Default" << std::endl;
+    std::cout << "Roboto Destroyer" << std::endl;
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
