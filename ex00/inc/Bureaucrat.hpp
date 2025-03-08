@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:27:52 by dbonilla          #+#    #+#             */
-/*   Updated: 2025/02/27 16:54:33 by dbonilla         ###   ########.fr       */
+/*   Updated: 2025/03/08 00:59:13 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 class Bureaucrat
 {
     private:
-        const std::string name;
-        int grade;
+        const std::string _name;
+        int _grade;
     public:
         Bureaucrat();
         Bureaucrat(const std::string &name, int grade);
@@ -36,13 +36,13 @@ class Bureaucrat
         void incrementGrade();
         void decrementGrade();
 
-        class GradeToHighException: public std::exception
+        class GradeTooHighException: public std::exception
         {
             public:
                 virtual const char* what() const throw();
             
         };
-        class GradeToLowException: public std::exception
+        class GradeTooLowException: public std::exception
         {
             public:
                 virtual const char* what() const throw();

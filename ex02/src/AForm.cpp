@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:02:57 by dbonilla          #+#    #+#             */
-/*   Updated: 2025/03/07 18:18:25 by dbonilla         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:17:02 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ AForm::AForm(const std::string &name, int gradeToExcecution,
 	_gradeToSigned(gradeToSigned), _isSigned(false)
 {
 	if (gradeToExcecution < 1 || gradeToSigned < 1)
-		throw GradeToHighException();
+		throw GradeTooHighException();
 	else if (gradeToExcecution > 150 || gradeToSigned > 150)
-		throw GradeToLowException();
+		throw GradeTooLowException();
 }
 
 AForm::AForm(const AForm &other) : _name(other._name),
@@ -67,7 +67,7 @@ bool AForm::isSigned() const
 void AForm::beSigned(const Bureaucrat &b)
 {
 	if (b.getGrade() > _gradeToSigned)
-		throw GradeToLowException();
+		throw GradeTooLowException();
 	_isSigned = true;
 }
 
@@ -76,15 +76,15 @@ void AForm::checkExecution(Bureaucrat const &executor) const
 	if (!_isSigned)
 		throw FormNotSignedException();
 	if (executor.getGrade() > _gradeToExcecution)
-		throw GradeToLowException();
+		throw GradeTooLowException();
 }
 
-const char *AForm::GradeToHighException::what() const throw()
+const char *AForm::GradeTooHighException::what() const throw()
 {
     return ("Grade to High for signed");
 }
 
-const char *AForm::GradeToLowException::what() const throw()
+const char *AForm::GradeTooLowException::what() const throw()
 {
     return ("Grade to Low for signed");
 }

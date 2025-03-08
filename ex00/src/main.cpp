@@ -6,13 +6,13 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 16:07:14 by dbonilla          #+#    #+#             */
-/*   Updated: 2025/03/07 17:47:09 by dbonilla         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:01:18 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
 #include <ctype.h>
-#include <stdlib.h>
+#include <cstdlib>
 
 static int	digit(char *digit)
 {

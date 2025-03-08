@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 01:03:34 by dbonilla          #+#    #+#             */
-/*   Updated: 2025/03/07 18:32:01 by dbonilla         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:23:21 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name),_grade(grade)
 {
     if (grade < 1)
-        throw ExceptionToHighGrade();
+        throw GradeTooHighException();
     else if (grade > 150)
-        throw ExceptionToLowGrade();
+        throw GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade)
@@ -43,13 +43,13 @@ Bureaucrat::~Bureaucrat()
 }
 void Bureaucrat::incrementGrade() {
     if (_grade <= 1)
-        throw ExceptionToHighGrade();
+        throw GradeTooHighException();
     _grade--;
 }
 
 void Bureaucrat::decrementGrade() {
     if (_grade >= 150)
-        throw ExceptionToLowGrade();
+        throw GradeTooLowException();
     _grade++;
 }
 
@@ -92,12 +92,12 @@ void Bureaucrat::executeForm(AForm const &form)
     }
 }
 
-const char * Bureaucrat::ExceptionToHighGrade::what() const throw()
+const char * Bureaucrat::GradeTooHighException::what() const throw()
 {
     return ("Grade To High");
 }
 
-const char * Bureaucrat::ExceptionToLowGrade::what() const throw()
+const char * Bureaucrat::GradeTooLowException::what() const throw()
 {
     return ("Grade To Low");
 }

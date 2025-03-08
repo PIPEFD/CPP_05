@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:13:21 by dbonilla          #+#    #+#             */
-/*   Updated: 2025/03/07 18:12:41 by dbonilla         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:18:23 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Bureaucrat
 	int _grade;
 
   public:
+    Bureaucrat();
 	Bureaucrat(const std::string &name, int grade);
 	Bureaucrat(const Bureaucrat &other);
 	Bureaucrat &operator=(const Bureaucrat &rhs);
@@ -38,13 +39,13 @@ class Bureaucrat
 	void signForm(AForm &f);
 	void executeForm(AForm const &form);
 
-	class GradeToHighException : public std::exception
+	class GradeTooHighException : public std::exception
 	{
 		public:
 		virtual const char *what() const throw();
 	};
 
-	class GradeToLowException : public std::exception
+	class GradeTooLowException : public std::exception
 	{
 		public:
 		virtual const char *what() const throw();

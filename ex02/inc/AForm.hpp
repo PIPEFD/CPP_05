@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:13:15 by dbonilla          #+#    #+#             */
-/*   Updated: 2025/03/07 18:12:37 by dbonilla         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:18:11 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class AForm
 	void checkExecution(Bureaucrat const &executor) const;
 
   public:
+    AForm();
 	AForm(const std::string &name, int gradeToExcecution, int gradeToSigned);
 	AForm(const AForm &rhs);
 	AForm &operator=(const AForm &other);
@@ -46,13 +47,13 @@ class AForm
 	void beSigned(const Bureaucrat &b);
 	virtual void execute(Bureaucrat const &executor) const = 0;
 
-	class GradeToHighException : public std::exception
+	class GradeTooHighException : public std::exception
 	{
 		public:
 		virtual const char *what() const throw();
 	};
 
-	class GradeToLowException : public std::exception
+	class GradeTooLowException : public std::exception
 	{
 		public:
 		virtual const char *what() const throw();

@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:24:32 by dbonilla          #+#    #+#             */
-/*   Updated: 2025/03/07 01:21:21 by dbonilla         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:20:05 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class ShrubberyCreationForm : public AForm
 	private:
 		const std::string _target;
 	public:
+        ShrubberyCreationForm();
 		ShrubberyCreationForm(const std::string &target);
 		ShrubberyCreationForm(const ShrubberyCreationForm &other);
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
